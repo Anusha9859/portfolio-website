@@ -8,18 +8,31 @@ export const submitContactForm = async (req, res) => {
     if (!errors.isEmpty()) {
       return res.status(400).json({ 
         success: false, 
+        message: 'Please fill all fields correctly',
         errors: errors.array() 
       });
     }
 
     const { name, email, message } = req.body;
 
+    // Additional validation
+    if (!name || !email || !message) {
+      return res.status(400).json({
+        success: false,
+        message: 'All fields are required'
+      });
+    }
+
+    console.log('📧 Received contact form:', { name, email, message });
+
     // Create new contact entry
     const contact = await Contact.create({
-      name,
-      email,
-      message
+      name: name.trim(),
+      email: email.trim().toLowerCase(),
+      message: message.trim()
     });
+
+    console.log('✅ Contact saved successfully:', contact._id);
 
     res.status(201).json({
       success: true,
@@ -32,10 +45,11 @@ export const submitContactForm = async (req, res) => {
     });
 
   } catch (error) {
-    console.error('Contact form error:', error);
+    console.error('❌ Contact form error:', error);
     res.status(500).json({
       success: false,
-      message: 'Failed to send message. Please try again later.'
+      message: 'Failed to send message. Please try again later.',
+      error: process.env.NODE_ENV === 'development' ? error.message : undefined
     });
   }
 };
