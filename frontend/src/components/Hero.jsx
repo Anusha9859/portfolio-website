@@ -9,7 +9,7 @@ const Hero = () => {
 
   const handleDownloadResume = () => {
     const link = document.createElement('a');
-    link.href = '/resume.pdf';
+    link.href = '/Veera_resume.pdf';
     link.download = 'Veera_Venkatalakshmi_Resume.pdf';
     document.body.appendChild(link);
     link.click();
