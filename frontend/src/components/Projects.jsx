@@ -9,7 +9,7 @@ const Projects = () => {
       tech: ['React', 'Node.js', 'MongoDB', 'Gemini API', 'WebSocket'],
       features: ['Natural Language Processing', 'Real-time Responses', 'Context Memory', 'Modern UI/UX'],
       github: 'https://github.com/Anusha9859',
-      demo: '#'
+      demo: 'https://chatbot-frontend-d69m.vercel.app/'
     },
     {
       title: 'AI Agent Automation Platform',
@@ -25,7 +25,7 @@ const Projects = () => {
       tech: ['MongoDB', 'Express.js', 'React.js', 'Node.js', 'Socket.io'],
       features: ['User Authentication', 'Real-time Messaging', 'Online Status', 'Message History'],
       github: 'https://github.com/Anusha9859',
-      demo: '#'
+      demo: 'https://talk-a-tive-yveb.onrender.com/'
     },
     {
       title: 'Business Analytics Dashboard',
