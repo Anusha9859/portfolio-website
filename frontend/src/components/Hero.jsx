@@ -8,9 +8,20 @@ const Hero = () => {
   };
 
   const handleDownloadResume = () => {
+    // Create a temporary link element
     const link = document.createElement('a');
+    
+    // Set the href to the resume file in public folder
     link.href = '/Veera_resume.pdf';
+    
+    // Set the download attribute with desired filename
     link.download = 'Veera_Venkatalakshmi_Resume.pdf';
+    
+    // Make it open in new tab as fallback
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    
+    // Append to body, click, and remove
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
